@@ -1,0 +1,10 @@
+@import "~src/styles/colors.scss";
+
+.nav-bar{
+    .navbar{
+        background: $main-color;
+        .nav-links a{
+            color: $white-color;
+        }
+    }
+}
