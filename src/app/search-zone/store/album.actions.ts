@@ -3,6 +3,8 @@ import { AlbumActionTypes, Image } from "./album.model";
 
 export class LoadAlbumAction implements Action {
   readonly type = AlbumActionTypes.Load;
+  constructor(public payload: string) {}
+
 }
 export class LoadAlbumSuccessAction implements Action {
   readonly type = AlbumActionTypes.LoadSuccess;

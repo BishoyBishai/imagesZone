@@ -35,6 +35,8 @@ export function albumReducer(
       return {
         ...state,
         imagesList: action.payload,
+        loading: false,
+        error: null,
       };
     case AlbumActionTypes.AddImageAsFavorite: {
       const imagesList = state.imagesList.map(image => {

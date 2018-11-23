@@ -1,3 +1,4 @@
+import { EffectsModule } from "@ngrx/effects";
 import { environment } from "./../environments/environment";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
@@ -20,6 +21,7 @@ import { FooterComponent } from "./components/layout/footer/footer.component";
       maxAge: 25,
       logOnly: environment.production,
     }),
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent],
