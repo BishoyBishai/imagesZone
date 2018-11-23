@@ -45,6 +45,15 @@ export function albumReducer(
       });
       return { ...state, imagesList };
     }
+    case AlbumActionTypes.RemoveImageFromFavorites: {
+      const imagesList = state.imagesList.map(image => {
+        if (image.id == action.payload) {
+          return { ...image, isFavorite: false };
+        }
+        return image;
+      });
+      return { ...state, imagesList };
+    }
   }
   return state;
 }

@@ -29,5 +29,6 @@ export type AlbumActions =
   | LoadAlbumSuccessAction
   | LoadAlbumFailAction
   | AddImageIsFavoriteAction
+  | RemoveImageFromFavoritesListAction
   | AddAlbumImagesAction;
   
