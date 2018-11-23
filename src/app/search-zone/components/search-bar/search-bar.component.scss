@@ -1,0 +1,48 @@
+@import "~src/styles/colors.scss";
+$jumbotron-padding-y: 3rem;
+
+.search-bar {
+  &.jumbotron {
+    padding-top: $jumbotron-padding-y;
+    padding-bottom: $jumbotron-padding-y;
+    margin-bottom: 0;
+    background-color: $white-color;
+
+    // .search-bar.jumbotron .container
+    .container {
+      max-width: 40rem;
+    }
+
+    // .search-bar.jumbotron p:last-child
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    // .search-bar.jumbotron .jumbotron-heading
+    &-heading {
+      font-weight: 300;
+    }
+
+  }
+
+  // .search-bar .form-control  
+  .form-control {
+    height: 55px;
+  }
+
+  // .search-bar .btn 
+  .btn {
+    width: 20%;
+  }
+
+  @media (min-width: 768px) {
+    .jumbotron {
+      padding-top: calc(#{$jumbotron-padding-y} * 2);
+      padding-bottom: calc(#{$jumbotron-padding-y} * 2);
+    }
+  }
+
+
+
+
+}

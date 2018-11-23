@@ -1,4 +1,5 @@
 import { AppState } from "./../../store/app.models";
+import { UnsplashImage } from "./unsplash.model";
 export interface AlbumStore {
   albumTag: string; // store the search value
   imagesList: Image[];
@@ -8,7 +9,10 @@ export interface AlbumStore {
 export interface Image {
   id: string;
   src: string;
-  isFavorite:boolean;
+  isFavorite?:boolean;
+  description:string;
+  username:string;
+  portfolio_url:string;
 }
 
 // extends global state for lazy loading
@@ -23,4 +27,10 @@ export enum AlbumActionTypes {
   AddAlbumImages = "[Album] Add album images",
   AddImageAsFavorite = "[Album] Add image as favorite",
   RemoveImageFromFavorites = "[Album] Remove image from favorites list",
+}
+
+export interface AlbumServiceResponse{
+  results:UnsplashImage[],
+  total_pages:number,
+  total:number
 }

@@ -2,8 +2,9 @@ import { AlbumService } from "./../services/album-service";
 import { Injectable } from "@angular/core";
 import { Actions, Effect, ofType } from "@ngrx/effects";
 import { AlbumActionTypes } from "./album.model";
-import { mergeMap,map } from "rxjs/operators";
+import { mergeMap, map } from "rxjs/operators";
 import { LoadAlbumAction, AddAlbumImagesAction } from "./album.actions";
+import { convertUnsplashImageToZoneImage } from "../utils";
 
 @Injectable()
 export class AlbumsEffects {
@@ -15,9 +16,14 @@ export class AlbumsEffects {
     ofType(AlbumActionTypes.Load),
     mergeMap((action: LoadAlbumAction) =>
       this.albumService.loadAlbum(action.payload).pipe(
-          //get new album images list 
-          map((images)=>(new AddAlbumImagesAction(images)))
-      )
+        //get new album images list
+        map(
+          res =>
+            new AddAlbumImagesAction(
+              convertUnsplashImageToZoneImage(res.results),
+            ),
+        ),
+      ),
     ),
   );
 }
