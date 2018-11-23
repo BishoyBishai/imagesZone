@@ -17,8 +17,8 @@ export class AlbumComponent implements OnInit {
     this.store.dispatch(new LoadAlbumAction("test"));
     //subscribe for album images
     this.store.pipe(select(getImagesList)).subscribe(images => {
-      console.log(images);
-      this.album = images;
+      this.album = images.slice(0,10);
+      console.log(this.album);
     });
   }
 }

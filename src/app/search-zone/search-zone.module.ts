@@ -9,9 +9,10 @@ import { EffectsModule } from "@ngrx/effects";
 import { AlbumsEffects } from "./store/album.effects";
 import { AlbumComponent } from "./components/album/album.component";
 import { AlbumService } from "./services/album-service";
+import { AlbumImageComponent } from './components/album-image/album-image.component';
 
 @NgModule({
-  declarations: [AlbumComponent],
+  declarations: [AlbumComponent, AlbumImageComponent],
   imports: [
     CommonModule,
     SearchZoneRoutingModule,
