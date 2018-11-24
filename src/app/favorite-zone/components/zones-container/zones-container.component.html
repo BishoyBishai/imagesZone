@@ -1,5 +1,14 @@
 <div class="container zones-container">
-  <zone *ngFor="let zone of zones" [zone]="zone" ></zone>
+  <div *ngIf="zones.length==0" class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Sorry :( </h1>
+      <p class="lead">You haven't any zones, Let's build your favorite zones</p>
+    </div>
+  </div>
+  <div *ngIf="zones.length!==0">
+    <zone *ngFor="let zone of zones" [zone]="zone"></zone>
+  </div>
+
   <update-zone-modal></update-zone-modal>
   <delete-zone-modal></delete-zone-modal>
 </div>
