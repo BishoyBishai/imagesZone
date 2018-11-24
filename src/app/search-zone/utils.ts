@@ -19,3 +19,7 @@ export const convertUnsplashImageToZoneImage = (
     portfolio_url: img.user.portfolio_url,
   }));
 };
+
+export const isImageInList = (images: Image[], currentImageId: string) => {
+  return images.findIndex(img => img.id === currentImageId) !== -1;
+};

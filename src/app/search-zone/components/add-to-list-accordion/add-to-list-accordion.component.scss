@@ -1,0 +1,14 @@
+ngb-accordion /deep/ .card {
+  border: 0px;
+
+  #display-favorite-lists-header {
+    display: none
+  }
+
+  .card-header {
+    background: none;
+    border: 0px;
+    box-shadow: none;
+    padding: 0px
+  }
+}

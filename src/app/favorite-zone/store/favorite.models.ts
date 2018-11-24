@@ -2,7 +2,7 @@ import { Image } from "./../../search-zone/store/album.model";
 export interface FavoriteList {
   id: string;
   name: string;
-  description: string;
+  description?: string;
   images: Image[];
 }
 

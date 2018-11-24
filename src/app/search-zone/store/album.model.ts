@@ -3,6 +3,7 @@ import { UnsplashImage } from "./unsplash.model";
 export interface AlbumStore {
   albumTag: string; // store the search value
   imagesList: Image[];
+  currentImage:Image;
   loading: boolean;
   error: any;
   modalIsOpen: boolean;
@@ -26,8 +27,7 @@ export enum AlbumActionTypes {
   LoadSuccess = "[Album] Album Success",
   LoadFail = "[Album] Album Fail",
   AddAlbumImages = "[Album] Add album images",
-  AddImageAsFavorite = "[Album] Add image as favorite",
-  RemoveImageFromFavorites = "[Album] Remove image from favorites list",
+  ChangeCurrentImage = "[Album] Change current Image",
   ToggleAddToListModal = "[Album] Toggle add to list modal",
 }
 

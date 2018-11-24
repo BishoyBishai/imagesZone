@@ -4,6 +4,7 @@ import { AlbumActions } from "./album.actions";
 export const albumInitState: AlbumStore = {
   albumTag: null,
   imagesList: [],
+  currentImage: null,
   loading: false,
   error: null,
   modalIsOpen: false,
@@ -39,23 +40,11 @@ export function albumReducer(
         loading: false,
         error: null,
       };
-    case AlbumActionTypes.AddImageAsFavorite: {
-      const imagesList = state.imagesList.map(image => {
-        if (image.id == action.payload.id) {
-          return { ...image, isFavorite: true };
-        }
-        return image;
-      });
-      return { ...state, imagesList };
-    }
-    case AlbumActionTypes.RemoveImageFromFavorites: {
-      const imagesList = state.imagesList.map(image => {
-        if (image.id == action.payload) {
-          return { ...image, isFavorite: false };
-        }
-        return image;
-      });
-      return { ...state, imagesList };
+    case AlbumActionTypes.ChangeCurrentImage: {
+      return {
+        ...state,
+        currentImage: action.payload,
+      };
     }
     case AlbumActionTypes.ToggleAddToListModal: {
       return { ...state, modalIsOpen: action.payload };

@@ -14,3 +14,9 @@ export const getModalState = createSelector(
     return state.modalIsOpen;
   },
 );
+export const getCurrentImage = createSelector(
+  albumFeatureSelector,
+  state => {
+    return state.currentImage;
+  },
+);

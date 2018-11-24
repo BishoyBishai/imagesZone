@@ -2,7 +2,6 @@ import { EffectsModule } from "@ngrx/effects";
 import { environment } from "./../environments/environment";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
 
 import { StoreModule, MetaReducer, ActionReducer } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
@@ -26,7 +25,6 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule,
     StoreModule.forRoot(rootReducer, { metaReducers }),
     StoreDevtoolsModule.instrument({
       name: "images zone",

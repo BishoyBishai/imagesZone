@@ -2,7 +2,18 @@ import { FavoriteStore, ActionFavoriteTypes } from "./favorite.models";
 import { FavoriteActions } from "./favorite.actions";
 
 const initialFavoriteStore: FavoriteStore = {
-  lists: [],
+  lists: [
+    {
+      name: "beshoy",
+      id: "bishoy",
+      images: [],
+    },
+    {
+      name: "semsem",
+      id: "semsem",
+      images: [],
+    },
+  ],
 };
 
 const favoriteReducer = (
