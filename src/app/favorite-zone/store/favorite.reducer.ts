@@ -52,7 +52,9 @@ const favoriteReducer = (
       return {
         ...state,
         lists: state.lists.map((list, i) =>
-          list.id !== action.payload.id ? list : action.payload,
+          list.id !== action.payload.id
+            ? list
+            : { ...action.payload, images: state.lists[i].images },
         ),
       };
     case ActionFavoriteTypes.ChangeCurrentList:
