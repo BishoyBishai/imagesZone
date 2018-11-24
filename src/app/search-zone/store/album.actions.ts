@@ -4,7 +4,6 @@ import { AlbumActionTypes, Image } from "./album.model";
 export class LoadAlbumAction implements Action {
   readonly type = AlbumActionTypes.Load;
   constructor(public payload: string) {}
-
 }
 export class LoadAlbumSuccessAction implements Action {
   readonly type = AlbumActionTypes.LoadSuccess;
@@ -25,6 +24,10 @@ export class AddAlbumImagesAction implements Action {
   readonly type = AlbumActionTypes.AddAlbumImages;
   constructor(public payload: Image[]) {}
 }
+export class ToggleAddToListModalAction implements Action {
+  readonly type = AlbumActionTypes.ToggleAddToListModal;
+  constructor(public payload: boolean) {}
+}
 
 export type AlbumActions =
   | LoadAlbumAction
@@ -32,5 +35,5 @@ export type AlbumActions =
   | LoadAlbumFailAction
   | AddImageIsFavoriteAction
   | RemoveImageFromFavoritesListAction
-  | AddAlbumImagesAction;
-  
+  | AddAlbumImagesAction
+  | ToggleAddToListModalAction;

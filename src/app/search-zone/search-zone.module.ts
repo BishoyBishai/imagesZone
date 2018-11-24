@@ -11,9 +11,10 @@ import { AlbumComponent } from "./components/album/album.component";
 import { AlbumService } from "./services/album-service";
 import { AlbumImageComponent } from './components/album-image/album-image.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { AddToListModalComponent } from './components/add-to-list-modal/add-to-list-modal.component';
 
 @NgModule({
-  declarations: [AlbumComponent, AlbumImageComponent, SearchBarComponent],
+  declarations: [AlbumComponent, AlbumImageComponent, SearchBarComponent, AddToListModalComponent],
   imports: [
     CommonModule,
     SearchZoneRoutingModule,

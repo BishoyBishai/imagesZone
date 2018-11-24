@@ -4,7 +4,7 @@
     <p class="card-text">{{image.description}}</p>
     <div class="d-flex justify-content-between align-items-center">
       <div class="btn-group">
-        <button type="button" class="btn btn-sm btn-outline-secondary">Add to my zone</button>
+        <button type="button" (click)="addToMyZone(image.id)" class="btn btn-sm btn-outline-secondary">Add to my zone</button>
       </div>
       <small><a class="text-muted" target="blank" [href]="image.portfolio_url">By: {{image.username}}</a></small>
     </div>

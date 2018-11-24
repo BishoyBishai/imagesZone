@@ -8,3 +8,9 @@ export const getImagesList = createSelector(
     return state.imagesList;
   },
 );
+export const getModalState = createSelector(
+  albumFeatureSelector,
+  state => {
+    return state.modalIsOpen;
+  },
+);

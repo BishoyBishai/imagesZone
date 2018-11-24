@@ -6,6 +6,7 @@ export const albumInitState: AlbumStore = {
   imagesList: [],
   loading: false,
   error: null,
+  modalIsOpen: false,
 };
 
 export function albumReducer(
@@ -55,6 +56,9 @@ export function albumReducer(
         return image;
       });
       return { ...state, imagesList };
+    }
+    case AlbumActionTypes.ToggleAddToListModal: {
+      return { ...state, modalIsOpen: action.payload };
     }
   }
   return state;
