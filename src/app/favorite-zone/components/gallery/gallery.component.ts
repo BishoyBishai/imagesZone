@@ -13,6 +13,9 @@ export class GalleryComponent implements OnInit {
   @Input("images") images: Image[] = [];
   galleryImages;
   constructor() {}
+  deleteImg(){
+    alert("ya rab")
+  }
   ngOnInit() {
     this.galleryOptions = [
       {
@@ -22,6 +25,8 @@ export class GalleryComponent implements OnInit {
         previewSwipe: true,
         imageAnimation: "rotate",
         imageDescription: true,
+        previewDownload:true,
+        lazyLoading:true,
       },
       {
         breakpoint: 500,

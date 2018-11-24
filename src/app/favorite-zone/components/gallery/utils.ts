@@ -6,7 +6,7 @@ export const getGalleryImages = (images: Image[]) => {
       small: img.src,
       medium: img.src,
       big: img.src,
-      description: img.description,
+      description: `<a (click)="deleteImg()" >${img.description}</a>`,
     }))
   );
 };
