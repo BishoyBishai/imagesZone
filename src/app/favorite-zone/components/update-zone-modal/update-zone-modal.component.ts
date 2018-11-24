@@ -6,12 +6,12 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { ToggleUpdateModal } from "../../store/favorite.actions";
 
 @Component({
-  selector: "update-list-modal",
-  templateUrl: "./update-list-modal.component.html",
-  styleUrls: ["./update-list-modal.component.scss"],
+  selector: "update-zone-modal",
+  templateUrl: "./update-zone-modal.component.html",
+  styleUrls: ["./update-zone-modal.component.scss"],
 })
-export class UpdateListModalComponent implements OnInit {
-  @ViewChild("updateListModal") private updateListModal;
+export class UpdateZoneModalComponent implements OnInit {
+  @ViewChild("updateZoneModal") private updateZoneModal;
 
   constructor(private store: Store<AppState>, private modalService: NgbModal) {}
 
@@ -22,7 +22,7 @@ export class UpdateListModalComponent implements OnInit {
     this.store.pipe(select(getUpdateModalState)).subscribe(modalState => {
       if (modalState) {
         this.modalService
-          .open(this.updateListModal, { size: "lg" })
+          .open(this.updateZoneModal, { size: "lg" })
           .result.then(null, r => this.closeModal());
       } else {
         this.modalService.dismissAll();

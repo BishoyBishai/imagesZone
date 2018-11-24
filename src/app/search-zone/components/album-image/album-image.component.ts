@@ -3,7 +3,7 @@ import { State } from "../../store/album.model";
 import { Store } from "@ngrx/store";
 import { Component, Input } from "@angular/core";
 import {
-  ToggleAddToListModalAction,
+  ToggleAddToZoneModalAction,
   changeCurrentImageAction,
 } from "../../store/album.actions";
 
@@ -18,6 +18,6 @@ export class AlbumImageComponent {
 
   addToMyZone(image: Image) {
     this.store.dispatch(new changeCurrentImageAction(image));
-    this.store.dispatch(new ToggleAddToListModalAction(true));
+    this.store.dispatch(new ToggleAddToZoneModalAction(true));
   }
 }

@@ -1,0 +1,12 @@
+<li class="zone-group-item d-flex justify-content-between align-items-center">
+  <div>
+    <button class="badge badge-dark badge-pill">{{zone.images.length}}</button>
+    {{zone.name}}
+  </div>
+  <div>
+    <button *ngIf="currentImageInZone" type="button" (click)="removeImageFromZone(zone.id)" class="btn btn-danger btn-sm">Remove
+      zone</button>
+    <button *ngIf="!currentImageInZone" type="button" (click)="addImageToZone(zone.id)" class="btn btn-dark btn-sm">Add
+      to zone</button>
+  </div>
+</li>

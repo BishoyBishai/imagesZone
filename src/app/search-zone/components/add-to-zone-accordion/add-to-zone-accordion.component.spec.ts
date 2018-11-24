@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UpdateListModalComponent } from './update-list-modal.component';
+import { AddToZoneAccordionComponent } from './add-to-zone-accordion.component';
 
-describe('UpdateListModalComponent', () => {
-  let component: UpdateListModalComponent;
-  let fixture: ComponentFixture<UpdateListModalComponent>;
+describe('AddToZoneAccordionComponent', () => {
+  let component: AddToZoneAccordionComponent;
+  let fixture: ComponentFixture<AddToZoneAccordionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UpdateListModalComponent ]
+      declarations: [ AddToZoneAccordionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UpdateListModalComponent);
+    fixture = TestBed.createComponent(AddToZoneAccordionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

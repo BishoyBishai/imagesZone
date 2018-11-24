@@ -3,14 +3,14 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { State } from "../../store/album.model";
 import { Store, select } from "@ngrx/store";
 import { getModalState } from "../../store/album.selectors";
-import { ToggleAddToListModalAction } from "../../store/album.actions";
+import { ToggleAddToZoneModalAction } from "../../store/album.actions";
 @Component({
-  selector: "add-to-list-modal",
-  templateUrl: "./add-to-list-modal.component.html",
-  styleUrls: ["./add-to-list-modal.component.scss"],
+  selector: "add-to-zone-modal",
+  templateUrl: "./add-to-zone-modal.component.html",
+  styleUrls: ["./add-to-zone-modal.component.scss"],
 })
-export class AddToListModalComponent implements OnInit {
-  @ViewChild("addToListModal") private addToListModal;
+export class AddToZoneModalComponent implements OnInit {
+  @ViewChild("addToZoneModal") private addToZoneModal;
   constructor(private store: Store<State>, private modalService: NgbModal) {}
 
   ngOnInit() {
@@ -20,7 +20,7 @@ export class AddToListModalComponent implements OnInit {
     this.store.pipe(select(getModalState)).subscribe(modalState => {
       if (modalState) {
         this.modalService
-          .open(this.addToListModal,{ size: 'lg' })
+          .open(this.addToZoneModal,{ size: 'lg' })
           .result.then(null, r => this.closeModal());
       } else {
         this.modalService.dismissAll();
@@ -29,6 +29,6 @@ export class AddToListModalComponent implements OnInit {
   }
 
   closeModal() {
-    this.store.dispatch(new ToggleAddToListModalAction(false));
+    this.store.dispatch(new ToggleAddToZoneModalAction(false));
   }
 }

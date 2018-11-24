@@ -21,8 +21,8 @@ export class AddAlbumImagesAction implements Action {
   readonly type = AlbumActionTypes.AddAlbumImages;
   constructor(public payload: Image[]) {}
 }
-export class ToggleAddToListModalAction implements Action {
-  readonly type = AlbumActionTypes.ToggleAddToListModal;
+export class ToggleAddToZoneModalAction implements Action {
+  readonly type = AlbumActionTypes.ToggleAddToZoneModal;
   constructor(public payload: boolean) {}
 }
 
@@ -32,4 +32,4 @@ export type AlbumActions =
   | LoadAlbumFailAction
   | changeCurrentImageAction
   | AddAlbumImagesAction
-  | ToggleAddToListModalAction;
+  | ToggleAddToZoneModalAction;

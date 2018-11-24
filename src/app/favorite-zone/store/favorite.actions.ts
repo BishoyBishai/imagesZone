@@ -1,44 +1,44 @@
 import { Action } from "@ngrx/store";
 import {
   ActionFavoriteTypes,
-  FavoriteList,
-  UpdatedFavoriteListPayload,
-  RemoveImageFromListPayload,
-  AddImageToFavoriteListPayload,
+  FavoriteZone,
+  UpdatedFavoriteZonePayload,
+  RemoveImageFromZonePayload,
+  AddImageToFavoriteZonePayload,
 } from "./favorite.models";
 
-export class AddNewFavoriteList implements Action {
-  readonly type = ActionFavoriteTypes.AddList;
-  constructor(public payload: FavoriteList) {}
+export class AddNewFavoriteZone implements Action {
+  readonly type = ActionFavoriteTypes.AddZone;
+  constructor(public payload: FavoriteZone) {}
 }
 
-export class RemoveFavoriteList implements Action {
-  readonly type = ActionFavoriteTypes.RemoveList;
+export class RemoveFavoriteZone implements Action {
+  readonly type = ActionFavoriteTypes.RemoveZone;
   constructor(public payload: string) {}
 }
 
-export class UpdateFavoriteList implements Action {
-  readonly type = ActionFavoriteTypes.UpdateList;
-  constructor(public payload: FavoriteList) {}
+export class UpdateFavoriteZone implements Action {
+  readonly type = ActionFavoriteTypes.UpdateZone;
+  constructor(public payload: FavoriteZone) {}
 }
 
-export class AddImageToFavoriteList implements Action {
-  readonly type = ActionFavoriteTypes.AddImageToList;
-  constructor(public payload: AddImageToFavoriteListPayload) {}
+export class AddImageToFavoriteZone implements Action {
+  readonly type = ActionFavoriteTypes.AddImageToZone;
+  constructor(public payload: AddImageToFavoriteZonePayload) {}
 }
 
-export class RemoveImageFromFavoriteList implements Action {
-  readonly type = ActionFavoriteTypes.RemoveImageFromList;
-  constructor(public payload: RemoveImageFromListPayload) {}
+export class RemoveImageFromFavoriteZone implements Action {
+  readonly type = ActionFavoriteTypes.RemoveImageFromZone;
+  constructor(public payload: RemoveImageFromZonePayload) {}
 }
 
-export class CreateInitList implements Action {
-  readonly type = ActionFavoriteTypes.CreateInitList;
+export class CreateInitZone implements Action {
+  readonly type = ActionFavoriteTypes.CreateInitZone;
 }
 
-export class ChangeCurrentList implements Action {
-  readonly type = ActionFavoriteTypes.ChangeCurrentList;
-  constructor(public payload: FavoriteList) {}
+export class ChangeCurrentZone implements Action {
+  readonly type = ActionFavoriteTypes.ChangeCurrentZone;
+  constructor(public payload: FavoriteZone) {}
 }
 export class ToggleUpdateModal implements Action {
   readonly type = ActionFavoriteTypes.ToggleUpdateModal;
@@ -50,12 +50,12 @@ export class ToggleDeleteModal implements Action {
 }
 
 export type FavoriteActions =
-  | AddNewFavoriteList
-  | RemoveFavoriteList
-  | UpdateFavoriteList
-  | AddImageToFavoriteList
-  | RemoveImageFromFavoriteList
-  | ChangeCurrentList
-  | CreateInitList
+  | AddNewFavoriteZone
+  | RemoveFavoriteZone
+  | UpdateFavoriteZone
+  | AddImageToFavoriteZone
+  | RemoveImageFromFavoriteZone
+  | ChangeCurrentZone
+  | CreateInitZone
   | ToggleUpdateModal
   | ToggleDeleteModal;

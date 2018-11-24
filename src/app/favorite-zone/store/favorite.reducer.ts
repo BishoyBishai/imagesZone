@@ -2,8 +2,8 @@ import { FavoriteStore, ActionFavoriteTypes } from "./favorite.models";
 import { FavoriteActions } from "./favorite.actions";
 
 const initialFavoriteStore: FavoriteStore = {
-  lists: [],
-  currentList: null,
+  zones: [],
+  currentZone: null,
   updateModal: false,
   deleteModal: false,
 };
@@ -13,61 +13,61 @@ const favoriteReducer = (
   action: FavoriteActions,
 ): FavoriteStore => {
   switch (action.type) {
-    case ActionFavoriteTypes.AddList:
+    case ActionFavoriteTypes.AddZone:
       return {
         ...state,
-        lists: [action.payload, ...state.lists],
-        currentList: action.payload,
+        zones: [action.payload, ...state.zones],
+        currentZone: action.payload,
       };
-    case ActionFavoriteTypes.RemoveList:
+    case ActionFavoriteTypes.RemoveZone:
       return {
         ...state,
-        lists: state.lists.filter(list => list.id !== action.payload),
+        zones: state.zones.filter(zone => zone.id !== action.payload),
       };
-    case ActionFavoriteTypes.AddImageToList:
+    case ActionFavoriteTypes.AddImageToZone:
       return {
         ...state,
-        lists: state.lists.map((list, i) =>
-          list.id !== action.payload.id
-            ? list
+        zones: state.zones.map((zone, i) =>
+          zone.id !== action.payload.id
+            ? zone
             : {
-                ...list,
-                images: [action.payload.image, ...state.lists[i].images],
+                ...zone,
+                images: [action.payload.image, ...state.zones[i].images],
               },
         ),
       };
-    case ActionFavoriteTypes.RemoveImageFromList:
+    case ActionFavoriteTypes.RemoveImageFromZone:
       return {
         ...state,
-        lists: state.lists.map((list, i) =>
-          list.id !== action.payload.id
-            ? list
+        zones: state.zones.map((zone, i) =>
+          zone.id !== action.payload.id
+            ? zone
             : {
-                ...list,
-                images: state.lists[i].images.filter(
+                ...zone,
+                images: state.zones[i].images.filter(
                   img => img.id !== action.payload.imageId,
                 ),
               },
         ),
       };
-    case ActionFavoriteTypes.UpdateList:
+    case ActionFavoriteTypes.UpdateZone:
       return {
         ...state,
-        lists: state.lists.map((list, i) =>
-          list.id !== action.payload.id
-            ? list
-            : { ...action.payload, images: state.lists[i].images },
+        zones: state.zones.map((zone, i) =>
+          zone.id !== action.payload.id
+            ? zone
+            : { ...action.payload, images: state.zones[i].images },
         ),
       };
-    case ActionFavoriteTypes.ChangeCurrentList:
+    case ActionFavoriteTypes.ChangeCurrentZone:
       return {
         ...state,
-        currentList: action.payload,
+        currentZone: action.payload,
       };
-    case ActionFavoriteTypes.CreateInitList:
+    case ActionFavoriteTypes.CreateInitZone:
       return {
         ...state,
-        currentList: {
+        currentZone: {
           id: "0",
           images: [],
           name: "",

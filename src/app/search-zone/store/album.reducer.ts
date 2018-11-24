@@ -3,7 +3,7 @@ import { AlbumActions } from "./album.actions";
 
 export const albumInitState: AlbumStore = {
   albumTag: null,
-  imagesList: [],
+  imagesZone: [],
   currentImage: null,
   loading: false,
   error: null,
@@ -36,7 +36,7 @@ export function albumReducer(
     case AlbumActionTypes.AddAlbumImages:
       return {
         ...state,
-        imagesList: action.payload,
+        imagesZone: action.payload,
         loading: false,
         error: null,
       };
@@ -46,7 +46,7 @@ export function albumReducer(
         currentImage: action.payload,
       };
     }
-    case AlbumActionTypes.ToggleAddToListModal: {
+    case AlbumActionTypes.ToggleAddToZoneModal: {
       return { ...state, modalIsOpen: action.payload };
     }
   }

@@ -8,6 +8,6 @@
     <label>Write something about this zone</label>
     <input formControlName='description' type="text" class="form-control" placeholder="It's my favorite zone for cars.....">
   </div>
-  <button *ngIf="currentList.id==='0'" type="submit" class="btn btn-dark">Create</button>
-  <button *ngIf="currentList.id!=='0'" type="submit" class="btn btn-success">Update</button>
+  <button *ngIf="currentZone.id==='0'" type="submit" class="btn btn-dark">Create</button>
+  <button *ngIf="currentZone.id!=='0'" type="submit" class="btn btn-success">Update</button>
 </form>

@@ -17,7 +17,7 @@ export function localStorageSyncReducer(
   reducer: ActionReducer<any>,
 ): ActionReducer<any> {
   return localStorageSync({
-    keys: [{ "favorite-lists": ["lists"] }],
+    keys: [{ "favorite-zones": ["zones"] }],
     rehydrate: true,
   })(reducer);
 }

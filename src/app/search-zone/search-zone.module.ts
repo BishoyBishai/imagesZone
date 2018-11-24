@@ -11,10 +11,10 @@ import { AlbumComponent } from "./components/album/album.component";
 import { AlbumService } from "./services/album-service";
 import { AlbumImageComponent } from "./components/album-image/album-image.component";
 import { SearchBarComponent } from "./components/search-bar/search-bar.component";
-import { AddToListModalComponent } from "./components/add-to-list-modal/add-to-list-modal.component";
-import { AddToListAccordionComponent } from "./components/add-to-list-accordion/add-to-list-accordion.component";
+import { AddToZoneModalComponent } from "./components/add-to-zone-modal/add-to-zone-modal.component";
+import { AddToZoneAccordionComponent } from "./components/add-to-zone-accordion/add-to-zone-accordion.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { FavoriteListAsideComponent } from './components/favorite-list-aside/favorite-list-aside.component';
+import { FavoriteZoneAsideComponent } from './components/favorite-zone-aside/favorite-zone-aside.component';
 import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
@@ -22,9 +22,9 @@ import { SharedModule } from "../shared/shared.module";
     AlbumComponent,
     AlbumImageComponent,
     SearchBarComponent,
-    AddToListModalComponent,
-    AddToListAccordionComponent,
-    FavoriteListAsideComponent,
+    AddToZoneModalComponent,
+    AddToZoneAccordionComponent,
+    FavoriteZoneAsideComponent,
   ],
   imports: [
     CommonModule,

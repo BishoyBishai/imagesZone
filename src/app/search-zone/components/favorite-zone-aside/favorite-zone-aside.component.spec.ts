@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeleteListModalComponent } from './delete-list-modal.component';
+import { FavoriteZoneAsideComponent } from './favorite-zone-aside.component';
 
-describe('DeleteListModalComponent', () => {
-  let component: DeleteListModalComponent;
-  let fixture: ComponentFixture<DeleteListModalComponent>;
+describe('FavoriteZoneAsideComponent', () => {
+  let component: FavoriteZoneAsideComponent;
+  let fixture: ComponentFixture<FavoriteZoneAsideComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DeleteListModalComponent ]
+      declarations: [ FavoriteZoneAsideComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DeleteListModalComponent);
+    fixture = TestBed.createComponent(FavoriteZoneAsideComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

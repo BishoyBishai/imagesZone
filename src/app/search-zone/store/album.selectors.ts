@@ -2,10 +2,10 @@ import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { AlbumStore } from "./album.model";
 
 const albumFeatureSelector = createFeatureSelector<AlbumStore>("albums");
-export const getImagesList = createSelector(
+export const getImagesZone = createSelector(
   albumFeatureSelector,
   state => {
-    return state.imagesList;
+    return state.imagesZone;
   },
 );
 export const getModalState = createSelector(

@@ -20,6 +20,6 @@ export const convertUnsplashImageToZoneImage = (
   }));
 };
 
-export const isImageInList = (images: Image[], currentImageId: string) => {
+export const isImageInZone = (images: Image[], currentImageId: string) => {
   return images.findIndex(img => img.id === currentImageId) !== -1;
 };

@@ -2,7 +2,7 @@ import { AppState } from "./../../store/app.models";
 import { UnsplashImage } from "./unsplash.model";
 export interface AlbumStore {
   albumTag: string; // store the search value
-  imagesList: Image[];
+  imagesZone: Image[];
   currentImage:Image;
   loading: boolean;
   error: any;
@@ -28,7 +28,7 @@ export enum AlbumActionTypes {
   LoadFail = "[Album] Album Fail",
   AddAlbumImages = "[Album] Add album images",
   ChangeCurrentImage = "[Album] Change current Image",
-  ToggleAddToListModal = "[Album] Toggle add to list modal",
+  ToggleAddToZoneModal = "[Album] Toggle add to zone modal",
 }
 
 export interface AlbumServiceResponse {

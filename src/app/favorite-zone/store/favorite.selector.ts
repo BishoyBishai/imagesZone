@@ -1,29 +1,29 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { FavoriteStore } from "./favorite.models";
 
-const favoriteListSelector = createFeatureSelector<FavoriteStore>(
-  "favorite-lists",
+const favoriteZoneSelector = createFeatureSelector<FavoriteStore>(
+  "favorite-zones",
 );
-export const getFavoriteLists = createSelector(
-  favoriteListSelector,
+export const getFavoriteZones = createSelector(
+  favoriteZoneSelector,
   state => {
-    return state.lists;
+    return state.zones;
   },
 );
-export const getCurrentList = createSelector(
-  favoriteListSelector,
+export const getCurrentZone = createSelector(
+  favoriteZoneSelector,
   state => {
-    return state.currentList;
+    return state.currentZone;
   },
 );
 export const getUpdateModalState = createSelector(
-  favoriteListSelector,
+  favoriteZoneSelector,
   state => {
     return state.updateModal;
   },
 );
 export const getDeleteModalState = createSelector(
-  favoriteListSelector,
+  favoriteZoneSelector,
   state => {
     return state.deleteModal;
   },

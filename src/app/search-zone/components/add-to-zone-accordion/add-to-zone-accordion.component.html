@@ -1,0 +1,15 @@
+<ngb-accordion (panelChange)="beforeChange($event)" activeIds="display-favorite-zones" class="add-to-zone-accordion">
+  <ngb-panel id="add-new-zone" title="Create new zone">
+    <ng-template ngbPanelContent>
+      <favorite-zone-form></favorite-zone-form>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="display-favorite-zones" title="Second">
+    <ng-template ngbPanelContent>
+
+      <ul class="zone-group">
+        <favorite-zone-aside *ngFor="let zone of favoriteZones " [zone]="zone"></favorite-zone-aside>
+      </ul>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>

@@ -16,7 +16,7 @@ export class AlbumsEffects {
     ofType(AlbumActionTypes.Load),
     mergeMap((action: LoadAlbumAction) =>
       this.albumService.loadAlbum(action.payload).pipe(
-        //get new album images list
+        //get new album images zone
         map(
           res =>
             new AddAlbumImagesAction(

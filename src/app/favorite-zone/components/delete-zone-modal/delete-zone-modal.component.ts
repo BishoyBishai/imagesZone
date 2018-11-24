@@ -1,7 +1,7 @@
-import { FavoriteList } from "./../../store/favorite.models";
+import { FavoriteZone } from "./../../store/favorite.models";
 import {
   getDeleteModalState,
-  getCurrentList,
+  getCurrentZone,
 } from "./../../store/favorite.selector";
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { Store, select } from "@ngrx/store";
@@ -9,19 +9,19 @@ import { AppState } from "../../../store/app.models";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import {
   ToggleDeleteModal,
-  RemoveFavoriteList,
+  RemoveFavoriteZone,
 } from "../../store/favorite.actions";
 
 @Component({
-  selector: "delete-list-modal",
-  templateUrl: "./delete-list-modal.component.html",
-  styleUrls: ["./delete-list-modal.component.scss"],
+  selector: "delete-zone-modal",
+  templateUrl: "./delete-zone-modal.component.html",
+  styleUrls: ["./delete-zone-modal.component.scss"],
 })
-export class DeleteListModalComponent implements OnInit {
-  @ViewChild("deleteListModal") private deleteListModal;
+export class DeleteZoneModalComponent implements OnInit {
+  @ViewChild("deleteZoneModal") private deleteZoneModal;
 
   constructor(private store: Store<AppState>, private modalService: NgbModal) {}
-  currentZone: FavoriteList;
+  currentZone: FavoriteZone;
   ngOnInit() {
     // listen to changes on modal value
     // when value is true open modal
@@ -29,20 +29,20 @@ export class DeleteListModalComponent implements OnInit {
     this.store.pipe(select(getDeleteModalState)).subscribe(modalState => {
       if (modalState) {
         this.modalService
-          .open(this.deleteListModal)
+          .open(this.deleteZoneModal)
           .result.then(null, r => this.closeModal());
       } else {
         this.modalService.dismissAll();
       }
     });
 
-    this.store.pipe(select(getCurrentList)).subscribe(zone => {
+    this.store.pipe(select(getCurrentZone)).subscribe(zone => {
       this.currentZone = zone;
     });
   }
 
-  deleteList() {
-    this.store.dispatch(new RemoveFavoriteList(this.currentZone.id));
+  deleteZone() {
+    this.store.dispatch(new RemoveFavoriteZone(this.currentZone.id));
     this.modalService.dismissAll();
 
   }

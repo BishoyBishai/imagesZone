@@ -8,8 +8,8 @@ import { GalleryComponent } from "./components/gallery/gallery.component";
 import { ZonesContainerComponent } from "./components/zones-container/zones-container.component";
 import { ZoneComponent } from "./components/zone/zone.component";
 import { NgxGalleryModule } from "ngx-gallery";
-import { UpdateListModalComponent } from "./components/update-list-modal/update-list-modal.component";
-import { DeleteListModalComponent } from "./components/delete-list-modal/delete-list-modal.component";
+import { UpdateZoneModalComponent } from "./components/update-zone-modal/update-zone-modal.component";
+import { DeleteZoneModalComponent } from "./components/delete-zone-modal/delete-zone-modal.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
@@ -17,8 +17,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     GalleryComponent,
     ZonesContainerComponent,
     ZoneComponent,
-    UpdateListModalComponent,
-    DeleteListModalComponent,
+    UpdateZoneModalComponent,
+    DeleteZoneModalComponent,
     
   ],
   imports: [

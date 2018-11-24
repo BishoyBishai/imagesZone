@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { AppState } from "../../../store/app.models";
-import { FavoriteList } from "../../store/favorite.models";
-import { getFavoriteLists } from "../../store/favorite.selector";
+import { FavoriteZone } from "../../store/favorite.models";
+import { getFavoriteZones } from "../../store/favorite.selector";
 
 @Component({
   selector: "zones-container",
@@ -11,10 +11,10 @@ import { getFavoriteLists } from "../../store/favorite.selector";
 })
 export class ZonesContainerComponent implements OnInit {
   constructor(private store: Store<AppState>) {}
-  zones: FavoriteList[];
+  zones: FavoriteZone[];
 
   ngOnInit() {
-    this.store.select(getFavoriteLists).subscribe(zones => {
+    this.store.select(getFavoriteZones).subscribe(zones => {
       this.zones = zones;
     });
   }

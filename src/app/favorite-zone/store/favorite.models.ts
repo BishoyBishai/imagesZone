@@ -1,5 +1,5 @@
 import { Image } from "./../../search-zone/store/album.model";
-export interface FavoriteList {
+export interface FavoriteZone {
   id: string;
   name: string;
   description?: string;
@@ -7,36 +7,36 @@ export interface FavoriteList {
 }
 
 export enum ActionFavoriteTypes {
-  Load = "[Favorite] Load favorite lists",
+  Load = "[Favorite] Load favorite zones",
   LoadSuccess = "[Favorite] Load Success",
-  AddList = "[Favorite] Add favorite list",
-  RemoveList = "[Favorite] Remove favorite list",
-  UpdateList = "[Favorite] Update favorite list",
-  AddImageToList = "[Favorite] Add image to list",
-  RemoveImageFromList = "[Favorite] Remove image from list",
-  ChangeCurrentList = "[Favorite] Change current list",
-  CreateInitList = "[Favorite] Create initial list",
+  AddZone = "[Favorite] Add favorite zone",
+  RemoveZone = "[Favorite] Remove favorite zone",
+  UpdateZone = "[Favorite] Update favorite zone",
+  AddImageToZone = "[Favorite] Add image to zone",
+  RemoveImageFromZone = "[Favorite] Remove image from zone",
+  ChangeCurrentZone = "[Favorite] Change current zone",
+  CreateInitZone = "[Favorite] Create initial zone",
   ToggleUpdateModal = "[Favorite] Toggle update modal",
   ToggleDeleteModal = "[Favorite] Toggle delete modal",
 }
 
 export interface FavoriteStore {
-  lists: FavoriteList[];
-  currentList: FavoriteList;
+  zones: FavoriteZone[];
+  currentZone: FavoriteZone;
   updateModal: boolean;
   deleteModal: boolean;
 }
 
-export interface AddImageToFavoriteListPayload {
+export interface AddImageToFavoriteZonePayload {
   id: string;
   image: Image;
 }
-export interface UpdatedFavoriteListPayload {
+export interface UpdatedFavoriteZonePayload {
   id: string;
   name: "name" | "description";
   value: string;
 }
-export interface RemoveImageFromListPayload {
+export interface RemoveImageFromZonePayload {
   id: string;
   imageId: string;
 }
