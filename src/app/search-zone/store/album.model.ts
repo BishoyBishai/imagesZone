@@ -8,7 +8,9 @@ export interface AlbumStore {
   error: any;
   modalIsOpen: boolean;
   total_pages: number;
-  total: number;
+  currentPage: number;
+  loadMore:boolean;
+  searchBy:string;
 }
 export interface Image {
   id: string;
@@ -26,9 +28,11 @@ export interface State extends AppState {
 
 export enum AlbumActionTypes {
   Load = "[Album] Album load",
+  LoadMore = "[Album] Album load more",
   LoadSuccess = "[Album] Album Success",
   LoadFail = "[Album] Album Fail",
   AddAlbumImages = "[Album] Add album images",
+  AppendAlbumImages = "[Album] Append album images",
   ChangeCurrentImage = "[Album] Change current Image",
   ToggleAddToZoneModal = "[Album] Toggle add to zone modal",
 }
@@ -37,4 +41,9 @@ export interface AlbumServiceResponse {
   results: UnsplashImage[];
   total_pages: number;
   total: number;
+}
+export interface AlbumServicePayload {
+  imagesZone: Image[];
+  total_pages: number;
+  currentPage: number;
 }

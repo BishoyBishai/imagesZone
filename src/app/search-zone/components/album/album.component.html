@@ -8,6 +8,13 @@
       <div class="col-md-4" *ngFor="let image of album">
         <album-image [image]="image"></album-image>
       </div>
+      <div *ngIf="currentPage<totalPages" class="btn-block">
+        <button (click)="loadMore()" *ngIf="!loadingMore" class="btn btn-light btn-block">Load More
+          ({{currentPage}}/{{totalPages}})</button>
+        <div>
+          <app-loader *ngIf="loadingMore"></app-loader>
+        </div>
+      </div>
     </div>
     <div class="row" *ngIf="!loading && album.length===0">
       <h1 class="display-4 center">No images...</h1>

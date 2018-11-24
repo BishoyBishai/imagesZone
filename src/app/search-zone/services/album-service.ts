@@ -8,7 +8,9 @@ import { getSearchURL } from "../utils";
 export class AlbumService {
   private url = "https://api.unsplash.com"; // URL to web API
   constructor(private http: HttpClient) {}
-  loadAlbum(tag: string): Observable<AlbumServiceResponse> {
-    return this.http.get<AlbumServiceResponse>(getSearchURL(this.url,tag));
+  loadAlbum(tag: string, page: number = 1): Observable<AlbumServiceResponse> {
+    return this.http.get<AlbumServiceResponse>(
+      getSearchURL(this.url, tag, page),
+    );
   }
 }

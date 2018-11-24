@@ -1,8 +1,12 @@
+import { LoadMoreAlbumAction } from "./../../store/album.actions";
 import { Component, OnInit } from "@angular/core";
 import { State, Image } from "../../store/album.model";
 import { Store, select } from "@ngrx/store";
-import { getImagesZone, getLoadingState } from "../../store/album.selectors";
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import {
+  getImagesZone,
+  getLoadingState,
+  getLoadingMoreData,
+} from "../../store/album.selectors";
 
 @Component({
   selector: "app-album",
@@ -12,14 +16,30 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 export class AlbumComponent implements OnInit {
   album: Image[];
   loading: boolean;
-  constructor(private store: Store<State>, private modalService: NgbModal) {}
+  totalPages: number;
+  currentPage: number;
+  searchBy: string;
+  loadingMore: boolean;
+  constructor(private store: Store<State>) {}
   ngOnInit() {
     // listen to changes on image zone
     this.store.pipe(select(getImagesZone)).subscribe(images => {
       this.album = images;
     });
-    this.store.pipe(select(getLoadingState)).subscribe(images => {
-      this.loading = images;
+    this.store.pipe(select(getLoadingState)).subscribe(loading => {
+      this.loading = loading;
     });
+    this.store.pipe(select(getLoadingMoreData)).subscribe(data => {
+      this.totalPages = data.totalPage;
+      this.currentPage = data.currentPage;
+      this.loadingMore = data.loadMore;
+      this.searchBy = data.searchBy;
+    });
+  }
+
+  loadMore() {
+    this.store.dispatch(
+      new LoadMoreAlbumAction(this.currentPage + 1, this.searchBy),
+    );
   }
 }

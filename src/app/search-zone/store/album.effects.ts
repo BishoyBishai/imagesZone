@@ -3,8 +3,16 @@ import { Injectable } from "@angular/core";
 import { Actions, Effect, ofType } from "@ngrx/effects";
 import { AlbumActionTypes } from "./album.model";
 import { mergeMap, map } from "rxjs/operators";
-import { LoadAlbumAction, AddAlbumImagesAction } from "./album.actions";
-import { convertUnsplashImageToZoneImage } from "../utils";
+import {
+  LoadAlbumAction,
+  AddAlbumImagesAction,
+  AppendAlbumImagesAction,
+  LoadMoreAlbumAction,
+} from "./album.actions";
+import {
+  convertUnsplashResponseToPayload,
+  convertUnsplashImageToZoneImage,
+} from "../utils";
 
 @Injectable()
 export class AlbumsEffects {
@@ -17,12 +25,27 @@ export class AlbumsEffects {
     mergeMap((action: LoadAlbumAction) =>
       this.albumService.loadAlbum(action.payload).pipe(
         //get new album images zone
-        map(
-          res =>
-            new AddAlbumImagesAction(
-              convertUnsplashImageToZoneImage(res.results),
-            ),
-        ),
+        map(res => {
+          return new AddAlbumImagesAction(
+            convertUnsplashResponseToPayload(res),
+          );
+        }),
+      ),
+    ),
+  );
+
+  @Effect()
+  appendNewPatch$ = this.action$.pipe(
+    // start component loading
+    ofType(AlbumActionTypes.LoadMore),
+    mergeMap((action: LoadMoreAlbumAction) =>
+      this.albumService.loadAlbum(action.tag, action.page).pipe(
+        //get new album images zone
+        map(res => {
+          return new AppendAlbumImagesAction(
+            convertUnsplashImageToZoneImage(res.results),
+          );
+        }),
       ),
     ),
   );

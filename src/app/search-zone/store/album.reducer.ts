@@ -9,7 +9,9 @@ export const albumInitState: AlbumStore = {
   error: null,
   modalIsOpen: false,
   total_pages: 0,
-  total: 0,
+  currentPage: 0,
+  loadMore: false,
+  searchBy: null,
 };
 
 export function albumReducer(
@@ -21,6 +23,13 @@ export function albumReducer(
       return {
         ...state,
         loading: true,
+        error: null,
+        searchBy: action.payload,
+      };
+    case AlbumActionTypes.LoadMore:
+      return {
+        ...state,
+        loadMore: true,
         error: null,
       };
     case AlbumActionTypes.LoadSuccess:
@@ -38,8 +47,16 @@ export function albumReducer(
     case AlbumActionTypes.AddAlbumImages:
       return {
         ...state,
-        imagesZone: action.payload,
+        ...action.payload,
         loading: false,
+        error: null,
+      };
+    case AlbumActionTypes.AppendAlbumImages:
+      return {
+        ...state,
+        imagesZone: [...state.imagesZone, ...action.payload],
+        currentPage: state.currentPage + 1,
+        loadMore: false,
         error: null,
       };
     case AlbumActionTypes.ChangeCurrentImage: {

@@ -26,3 +26,14 @@ export const getLoadingState = createSelector(
     return state.loading;
   },
 );
+export const getLoadingMoreData = createSelector(
+  albumFeatureSelector,
+  state => {
+    return {
+      currentPage: state.currentPage,
+      totalPage: state.total_pages,
+      loadMore: state.loadMore,
+      searchBy: state.searchBy,
+    };
+  },
+);
