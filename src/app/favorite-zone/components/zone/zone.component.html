@@ -4,7 +4,7 @@
     <div class="container">
       <h1 class="display-4"> {{zone.name}} [{{zone.images.length}}]</h1>
       <p class="lead" *ngIf="zone.description">{{zone.description}}</p>
-      <div class="lead actions"><a>update</a>  <a>delete</a></div>
+      <div class="lead actions"><a (click)="openUpdateModal(zone)">update</a> <a>delete</a></div>
       <favorite-gallery [images]="zone.images"></favorite-gallery>
     </div>
   </div>

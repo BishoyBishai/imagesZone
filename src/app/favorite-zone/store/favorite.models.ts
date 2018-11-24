@@ -16,11 +16,15 @@ export enum ActionFavoriteTypes {
   RemoveImageFromList = "[Favorite] Remove image from list",
   ChangeCurrentList = "[Favorite] Change current list",
   CreateInitList = "[Favorite] Create initial list",
+  ToggleUpdateModal = "[Favorite] Toggle update modal",
+  ToggleDeleteModal = "[Favorite] Toggle delete modal",
 }
 
 export interface FavoriteStore {
   lists: FavoriteList[];
   currentList: FavoriteList;
+  updateModal: boolean;
+  deleteModal: boolean;
 }
 
 export interface AddImageToFavoriteListPayload {

@@ -4,6 +4,8 @@ import { FavoriteActions } from "./favorite.actions";
 const initialFavoriteStore: FavoriteStore = {
   lists: [],
   currentList: null,
+  updateModal: false,
+  deleteModal: false,
 };
 
 const favoriteReducer = (
@@ -71,6 +73,16 @@ const favoriteReducer = (
           name: "",
           description: "",
         },
+      };
+    case ActionFavoriteTypes.ToggleUpdateModal:
+      return {
+        ...state,
+        updateModal: action.payload,
+      };
+    case ActionFavoriteTypes.ToggleDeleteModal:
+      return {
+        ...state,
+        updateModal: action.payload,
       };
   }
   return state;

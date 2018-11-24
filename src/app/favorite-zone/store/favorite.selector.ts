@@ -16,3 +16,15 @@ export const getCurrentList = createSelector(
     return state.currentList;
   },
 );
+export const getUpdateModalState = createSelector(
+  favoriteListSelector,
+  state => {
+    return state.updateModal;
+  },
+);
+export const getDeleteModalState = createSelector(
+  favoriteListSelector,
+  state => {
+    return state.deleteModal;
+  },
+);

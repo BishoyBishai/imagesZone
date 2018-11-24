@@ -9,7 +9,7 @@ import {
 } from "../../favorite-zone/store/favorite.actions";
 import { getCurrentList } from "../../favorite-zone/store/favorite.selector";
 import { generateUniqueId } from "../utils";
-
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: "favorite-list-form",
@@ -24,14 +24,13 @@ export class FavoriteListFormComponent implements OnInit {
     //listen for current list
     this.store.select(getCurrentList).subscribe(list => {
       this.currentList = list;
+      this.form = this.fb.group({
+        name: [this.currentList && this.currentList.name, Validators.required],
+        description: [this.currentList && this.currentList.description],
+      });
     });
   }
-  constructor(fb: FormBuilder, private store: Store<AppState>) {
-    this.form = fb.group({
-      name: [this.currentList && this.currentList.name, Validators.required],
-      description: [this.currentList && this.currentList.description],
-    });
-  }
+  constructor(private fb: FormBuilder, private store: Store<AppState> , private modalService: NgbModal) {}
   get zoneName() {
     return this.form.get("name");
   }
@@ -46,6 +45,7 @@ export class FavoriteListFormComponent implements OnInit {
       this.store.dispatch(
         new updateFavoriteList({ ...this.currentList, ...this.form.value }),
       );
+      this.modalService.dismissAll();
     }
   }
 }

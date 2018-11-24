@@ -40,6 +40,14 @@ export class ChangeCurrentList implements Action {
   readonly type = ActionFavoriteTypes.ChangeCurrentList;
   constructor(public payload: FavoriteList) {}
 }
+export class ToggleUpdateModal implements Action {
+  readonly type = ActionFavoriteTypes.ToggleUpdateModal;
+  constructor(public payload: boolean) {}
+}
+export class ToggleDeleteModal implements Action {
+  readonly type = ActionFavoriteTypes.ToggleDeleteModal;
+  constructor(public payload: boolean) {}
+}
 
 export type FavoriteActions =
   | AddNewFavoriteList
@@ -48,4 +56,6 @@ export type FavoriteActions =
   | AddImageToFavoriteList
   | RemoveImageFromFavoriteList
   | ChangeCurrentList
-  | CreateInitList;
+  | CreateInitList
+  | ToggleUpdateModal
+  | ToggleDeleteModal;
