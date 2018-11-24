@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { ZonesContainerComponent } from "./components/zones-container/zones-container.component";
 
-const routes: Routes = [];
+const routes: Routes = [{ path: "", component: ZonesContainerComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class FavoriteZoneRoutingModule { }
+export class FavoriteZoneRoutingModule {}
