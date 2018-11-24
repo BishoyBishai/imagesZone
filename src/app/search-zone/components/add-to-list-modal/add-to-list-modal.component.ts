@@ -20,7 +20,7 @@ export class AddToListModalComponent implements OnInit {
     this.store.pipe(select(getModalState)).subscribe(modalState => {
       if (modalState) {
         this.modalService
-          .open(this.addToListModal)
+          .open(this.addToListModal,{ size: 'lg' })
           .result.then(null, r => this.closeModal());
       } else {
         this.modalService.dismissAll();
