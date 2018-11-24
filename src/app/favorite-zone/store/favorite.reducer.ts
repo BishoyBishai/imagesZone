@@ -82,7 +82,7 @@ const favoriteReducer = (
     case ActionFavoriteTypes.ToggleDeleteModal:
       return {
         ...state,
-        updateModal: action.payload,
+        deleteModal: action.payload,
       };
   }
   return state;

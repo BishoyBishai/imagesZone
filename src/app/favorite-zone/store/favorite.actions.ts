@@ -12,12 +12,12 @@ export class AddNewFavoriteList implements Action {
   constructor(public payload: FavoriteList) {}
 }
 
-export class removeFavoriteList implements Action {
+export class RemoveFavoriteList implements Action {
   readonly type = ActionFavoriteTypes.RemoveList;
   constructor(public payload: string) {}
 }
 
-export class updateFavoriteList implements Action {
+export class UpdateFavoriteList implements Action {
   readonly type = ActionFavoriteTypes.UpdateList;
   constructor(public payload: FavoriteList) {}
 }
@@ -51,8 +51,8 @@ export class ToggleDeleteModal implements Action {
 
 export type FavoriteActions =
   | AddNewFavoriteList
-  | removeFavoriteList
-  | updateFavoriteList
+  | RemoveFavoriteList
+  | UpdateFavoriteList
   | AddImageToFavoriteList
   | RemoveImageFromFavoriteList
   | ChangeCurrentList

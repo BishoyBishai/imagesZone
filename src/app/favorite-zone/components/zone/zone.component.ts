@@ -1,4 +1,4 @@
-import { ToggleUpdateModal, ChangeCurrentList } from "./../../store/favorite.actions";
+import { ToggleUpdateModal, ChangeCurrentList, ToggleDeleteModal } from "./../../store/favorite.actions";
 import { AppState } from "./../../../store/app.models";
 import { FavoriteList } from "./../../store/favorite.models";
 import { Component, Input } from "@angular/core";
@@ -16,5 +16,9 @@ export class ZoneComponent {
   openUpdateModal(zone) {
     this.store.dispatch(new ChangeCurrentList(zone));
     this.store.dispatch(new ToggleUpdateModal(true));
+  }
+  openDeleteModal(zone) {
+    this.store.dispatch(new ChangeCurrentList(zone));
+    this.store.dispatch(new ToggleDeleteModal(true));
   }
 }

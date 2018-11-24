@@ -5,7 +5,7 @@ import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import {
   AddNewFavoriteList,
-  updateFavoriteList,
+  UpdateFavoriteList,
 } from "../../favorite-zone/store/favorite.actions";
 import { getCurrentList } from "../../favorite-zone/store/favorite.selector";
 import { generateUniqueId } from "../utils";
@@ -43,7 +43,7 @@ export class FavoriteListFormComponent implements OnInit {
       );
     } else {
       this.store.dispatch(
-        new updateFavoriteList({ ...this.currentList, ...this.form.value }),
+        new UpdateFavoriteList({ ...this.currentList, ...this.form.value }),
       );
       this.modalService.dismissAll();
     }
