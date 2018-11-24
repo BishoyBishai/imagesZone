@@ -10,3 +10,9 @@ export const getFavoriteLists = createSelector(
     return state.lists;
   },
 );
+export const getCurrentList = createSelector(
+  favoriteListSelector,
+  state => {
+    return state.currentList;
+  },
+);

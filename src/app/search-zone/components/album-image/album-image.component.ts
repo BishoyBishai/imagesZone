@@ -1,8 +1,11 @@
 import { Image } from "./../../store/album.model";
 import { State } from "../../store/album.model";
 import { Store } from "@ngrx/store";
-import { Component, OnInit, Input } from "@angular/core";
-import { ToggleAddToListModalAction, changeCurrentImageAction } from "../../store/album.actions";
+import { Component, Input } from "@angular/core";
+import {
+  ToggleAddToListModalAction,
+  changeCurrentImageAction,
+} from "../../store/album.actions";
 
 @Component({
   selector: "album-image",

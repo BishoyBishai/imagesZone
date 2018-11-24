@@ -14,10 +14,13 @@ export enum ActionFavoriteTypes {
   UpdateList = "[Favorite] Update favorite list",
   AddImageToList = "[Favorite] Add image to list",
   RemoveImageFromList = "[Favorite] Remove image from list",
+  ChangeCurrentList = "[Favorite] Change current list",
+  CreateInitList = "[Favorite] Create initial list",
 }
 
 export interface FavoriteStore {
   lists: FavoriteList[];
+  currentList: FavoriteList;
 }
 
 export interface AddImageToFavoriteListPayload {

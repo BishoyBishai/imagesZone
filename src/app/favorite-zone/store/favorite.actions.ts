@@ -11,13 +11,15 @@ export class AddNewFavoriteList implements Action {
   readonly type = ActionFavoriteTypes.AddList;
   constructor(public payload: FavoriteList) {}
 }
+
 export class removeFavoriteList implements Action {
   readonly type = ActionFavoriteTypes.RemoveList;
   constructor(public payload: string) {}
 }
+
 export class updateFavoriteList implements Action {
   readonly type = ActionFavoriteTypes.UpdateList;
-  constructor(public payload: UpdatedFavoriteListPayload) {}
+  constructor(public payload: FavoriteList) {}
 }
 
 export class AddImageToFavoriteList implements Action {
@@ -30,9 +32,20 @@ export class RemoveImageFromFavoriteList implements Action {
   constructor(public payload: RemoveImageFromListPayload) {}
 }
 
+export class CreateInitList implements Action {
+  readonly type = ActionFavoriteTypes.CreateInitList;
+}
+
+export class ChangeCurrentList implements Action {
+  readonly type = ActionFavoriteTypes.ChangeCurrentList;
+  constructor(public payload: FavoriteList) {}
+}
+
 export type FavoriteActions =
   | AddNewFavoriteList
   | removeFavoriteList
   | updateFavoriteList
   | AddImageToFavoriteList
-  | RemoveImageFromFavoriteList;
+  | RemoveImageFromFavoriteList
+  | ChangeCurrentList
+  | CreateInitList;

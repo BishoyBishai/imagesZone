@@ -14,6 +14,7 @@ const initialFavoriteStore: FavoriteStore = {
       images: [],
     },
   ],
+  currentList: null,
 };
 
 const favoriteReducer = (
@@ -22,7 +23,11 @@ const favoriteReducer = (
 ): FavoriteStore => {
   switch (action.type) {
     case ActionFavoriteTypes.AddList:
-      return { ...state, lists: [action.payload, ...state.lists] };
+      return {
+        ...state,
+        lists: [action.payload, ...state.lists],
+        currentList: action.payload,
+      };
     case ActionFavoriteTypes.RemoveList:
       return {
         ...state,
@@ -58,13 +63,23 @@ const favoriteReducer = (
       return {
         ...state,
         lists: state.lists.map((list, i) =>
-          list.id !== action.payload.id
-            ? list
-            : {
-                ...list,
-                [action.payload.name]: action.payload.value,
-              },
+          list.id !== action.payload.id ? list : action.payload,
         ),
+      };
+    case ActionFavoriteTypes.ChangeCurrentList:
+      return {
+        ...state,
+        currentList: action.payload,
+      };
+    case ActionFavoriteTypes.CreateInitList:
+      return {
+        ...state,
+        currentList: {
+          id: "0",
+          images: [],
+          name: "",
+          description: "",
+        },
       };
   }
   return state;

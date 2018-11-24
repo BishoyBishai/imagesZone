@@ -15,6 +15,7 @@ import { AddToListModalComponent } from "./components/add-to-list-modal/add-to-l
 import { AddToListAccordionComponent } from "./components/add-to-list-accordion/add-to-list-accordion.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FavoriteListAsideComponent } from './components/favorite-list-aside/favorite-list-aside.component';
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { FavoriteListAsideComponent } from './components/favorite-list-aside/fav
     StoreModule.forFeature("albums", albumReducer),
     EffectsModule.forFeature([AlbumsEffects]),
     NgbModule.forRoot(),
+    SharedModule
   ],
   providers: [AlbumService],
 })
