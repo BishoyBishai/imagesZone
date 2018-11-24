@@ -1,12 +1,16 @@
-
 <search-bar></search-bar>
 <div class="album py-5 bg-light">
   <div class="container">
-
-    <div class="row">
+    <div class="row" *ngIf="loading">
+      <app-loader></app-loader>
+    </div>
+    <div class="row" *ngIf="!loading && album.length>0">
       <div class="col-md-4" *ngFor="let image of album">
         <album-image [image]="image"></album-image>
       </div>
+    </div>
+    <div class="row" *ngIf="!loading && album.length===0">
+      <h1 class="display-4 center">No images...</h1>
     </div>
   </div>
 </div>

@@ -8,6 +8,8 @@ export const albumInitState: AlbumStore = {
   loading: false,
   error: null,
   modalIsOpen: false,
+  total_pages: 0,
+  total: 0,
 };
 
 export function albumReducer(

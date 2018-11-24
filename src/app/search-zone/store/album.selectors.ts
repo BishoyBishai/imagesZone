@@ -20,3 +20,9 @@ export const getCurrentImage = createSelector(
     return state.currentImage;
   },
 );
+export const getLoadingState = createSelector(
+  albumFeatureSelector,
+  state => {
+    return state.loading;
+  },
+);

@@ -6,6 +6,8 @@ The project's template is [Album Bootstrap template](https://getbootstrap.com/do
 
 Use [Unsplash API ](https://unsplash.com/documentation)  
 
+[page loader](https://codepen.io/azouaoui-med/pen/jKZyzW)
+
 ## Technologies stack
 
 - [Angular 7](https://github.com/angular/angular)   

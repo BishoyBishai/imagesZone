@@ -7,6 +7,8 @@ export interface AlbumStore {
   loading: boolean;
   error: any;
   modalIsOpen: boolean;
+  total_pages: number;
+  total: number;
 }
 export interface Image {
   id: string;
