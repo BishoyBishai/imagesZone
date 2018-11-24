@@ -16,7 +16,10 @@ import { rootReducer } from "./store/app.reducer";
 export function localStorageSyncReducer(
   reducer: ActionReducer<any>,
 ): ActionReducer<any> {
-  return localStorageSync({ keys: ["favorite-lists"] })(reducer);
+  return localStorageSync({
+    keys: [{ "favorite-lists": ["lists"] }],
+    rehydrate: true,
+  })(reducer);
 }
 const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
 
