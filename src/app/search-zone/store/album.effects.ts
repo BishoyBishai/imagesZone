@@ -2,17 +2,19 @@ import { AlbumService } from "./../services/album-service";
 import { Injectable } from "@angular/core";
 import { Actions, Effect, ofType } from "@ngrx/effects";
 import { AlbumActionTypes } from "./album.model";
-import { mergeMap, map } from "rxjs/operators";
+import { mergeMap, map, catchError } from "rxjs/operators";
 import {
   LoadAlbumAction,
   AddAlbumImagesAction,
   AppendAlbumImagesAction,
   LoadMoreAlbumAction,
+  LoadAlbumFailAction,
 } from "./album.actions";
 import {
   convertUnsplashResponseToPayload,
   convertUnsplashImageToZoneImage,
 } from "../utils";
+import { of } from "rxjs";
 
 @Injectable()
 export class AlbumsEffects {
@@ -29,7 +31,7 @@ export class AlbumsEffects {
           return new AddAlbumImagesAction(
             convertUnsplashResponseToPayload(res),
           );
-        }),
+        }, catchError(err => of(new LoadAlbumFailAction(err)))),
       ),
     ),
   );
@@ -45,7 +47,7 @@ export class AlbumsEffects {
           return new AppendAlbumImagesAction(
             convertUnsplashImageToZoneImage(res.results),
           );
-        }),
+        }, catchError(err => of(new LoadAlbumFailAction(err)))),
       ),
     ),
   );
