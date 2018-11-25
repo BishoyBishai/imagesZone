@@ -4,11 +4,12 @@ import {
 } from "./../../../favorite-zone/store/favorite.actions";
 import { Image } from "./../../store/album.model";
 import { Component, OnInit, Input } from "@angular/core";
-import { Store } from "@ngrx/store";
+import { Store, select } from "@ngrx/store";
 import { State } from "../../store/album.model";
 import { getCurrentImage } from "../../store/album.selectors";
 import { isImageInZone } from "../../utils";
 import { FavoriteZone } from "../../../favorite-zone/store/favorite.models";
+import { takeWhile } from "rxjs/operators";
 
 @Component({
   selector: "favorite-zone-aside",
@@ -17,16 +18,22 @@ import { FavoriteZone } from "../../../favorite-zone/store/favorite.models";
 })
 export class FavoriteZoneAsideComponent implements OnInit {
   @Input("zone") zone: FavoriteZone;
+  subscription: boolean = true;
   constructor(private store: Store<State>) {}
   currentImage: Image;
   currentImageInZone: boolean = false;
   ngOnInit() {
     //listen to current image
     //and check if the current image in zone
-    this.store.select(getCurrentImage).subscribe(img => {
-      this.currentImage = img;
-      this.currentImageInZone = isImageInZone(this.zone.images, img.id);
-    });
+    this.store
+      .pipe(
+        select(getCurrentImage),
+        takeWhile(() => this.subscription),
+      )
+      .subscribe(img => {
+        this.currentImage = img;
+        this.currentImageInZone = isImageInZone(this.zone.images, img.id);
+      });
   }
 
   addImageToZone(zoneId) {
@@ -45,5 +52,9 @@ export class FavoriteZoneAsideComponent implements OnInit {
         imageId: this.currentImage.id,
       }),
     );
+  }
+
+  ngOnDestroy(): void {
+    this.subscription = false;
   }
 }

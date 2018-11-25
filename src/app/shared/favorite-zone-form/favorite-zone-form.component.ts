@@ -2,7 +2,7 @@ import { FavoriteZone } from "./../../favorite-zone/store/favorite.models";
 import { AppState } from "./../../store/app.models";
 import { FormBuilder, Validators } from "@angular/forms";
 import { Component, OnInit } from "@angular/core";
-import { Store } from "@ngrx/store";
+import { Store, select } from "@ngrx/store";
 import {
   AddNewFavoriteZone,
   UpdateFavoriteZone,
@@ -10,6 +10,7 @@ import {
 import { getCurrentZone } from "../../favorite-zone/store/favorite.selector";
 import { generateUniqueId } from "../utils";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { takeWhile } from "rxjs/operators";
 
 @Component({
   selector: "favorite-zone-form",
@@ -19,18 +20,29 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 export class FavoriteZoneFormComponent implements OnInit {
   form;
   currentZone: FavoriteZone;
-
+  subscription: boolean = true;
   ngOnInit() {
-    //listen for current zone
-    this.store.select(getCurrentZone).subscribe(zone => {
-      this.currentZone = zone;
-      this.form = this.fb.group({
-        name: [this.currentZone && this.currentZone.name, Validators.required],
-        description: [this.currentZone && this.currentZone.description],
+    this.store
+      .pipe(
+        select(getCurrentZone),
+        takeWhile(() => this.subscription),
+      )
+      .subscribe(zone => {
+        this.currentZone = zone;
+        this.form = this.fb.group({
+          name: [
+            this.currentZone && this.currentZone.name,
+            Validators.required,
+          ],
+          description: [this.currentZone && this.currentZone.description],
+        });
       });
-    });
   }
-  constructor(private fb: FormBuilder, private store: Store<AppState> , private modalService: NgbModal) {}
+  constructor(
+    private fb: FormBuilder,
+    private store: Store<AppState>,
+    private modalService: NgbModal,
+  ) {}
   get zoneName() {
     return this.form.get("name");
   }
@@ -47,5 +59,8 @@ export class FavoriteZoneFormComponent implements OnInit {
       );
       this.modalService.dismissAll();
     }
+  }
+  ngOnDestroy(): void {
+    this.subscription = false;
   }
 }
