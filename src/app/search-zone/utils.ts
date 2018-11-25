@@ -17,7 +17,7 @@ export const convertUnsplashImageToZoneImage = (
 ): Image[] => {
   return images.map(img => ({
     id: img.id,
-    src: img.urls.full,
+    src: img.urls.small,
     description: img.description,
     username: img.user.username,
     portfolio_url: img.user.portfolio_url,
