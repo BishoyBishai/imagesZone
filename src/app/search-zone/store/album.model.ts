@@ -12,9 +12,17 @@ export interface AlbumStore {
   loadMore:boolean;
   searchBy:string;
 }
+
+export interface Urls {
+  raw: string;
+  full: string;
+  regular: string;
+  small: string;
+  thumb: string;
+}
 export interface Image {
   id: string;
-  src: string;
+  src: Urls;
   isFavorite?: boolean;
   description: string;
   username: string;

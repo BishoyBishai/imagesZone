@@ -3,9 +3,9 @@ export const getGalleryImages = (images: Image[]) => {
   return (
     images &&
     images.map(img => ({
-      small: img.src,
-      medium: img.src,
-      big: img.src,
+      small: img.src.thumb,
+      medium: img.src.regular,
+      big: img.src.full,
       description: `<a (click)="deleteImg()" >${img.description}</a>`,
     }))
   );
