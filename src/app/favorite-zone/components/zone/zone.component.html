@@ -4,8 +4,12 @@
     <div class="container">
       <h1 class="display-4"> {{zone.name}} [{{zone.images.length}}]</h1>
       <p class="lead" *ngIf="zone.description">{{zone.description}}</p>
-      <div class="lead actions"><a (click)="openUpdateModal(zone)">update</a> <a (click)="openDeleteModal(zone)">delete</a></div>
       <favorite-gallery [images]="zone.images"></favorite-gallery>
+      <hr class="my-4">
+      <div class="lead actions">
+        <button (click)="openUpdateModal(zone)" type="button" class="btn btn-secondary btn-lg">Update</button>
+        <button (click)="openDeleteModal(zone)" type="button" class="btn btn-danger btn-lg">Delete</button>
+      </div>
     </div>
   </div>
 </div>
