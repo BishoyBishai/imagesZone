@@ -12,6 +12,7 @@ import { HeaderComponent } from "./components/layout/header/header.component";
 import { FooterComponent } from "./components/layout/footer/footer.component";
 import { localStorageSync } from "ngrx-store-localstorage";
 import { rootReducer } from "./store/app.reducer";
+import { SharedModule } from "./shared/shared.module";
 
 export function localStorageSyncReducer(
   reducer: ActionReducer<any>,
@@ -28,6 +29,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SharedModule,
     StoreModule.forRoot(rootReducer, { metaReducers }),
     StoreDevtoolsModule.instrument({
       name: "images zone",
